@@ -1,12 +1,20 @@
-# Aplicação Github Explorer
+<h1 align="center">
+  Aplicação Github Explorer
+</h1>
 
-Aplicação Front-end para listar repositórios do Github
+<p align="center">Aplicação Front-end para listar repositórios do Github</p>
 
-[https://img.shields.io/badge/license-MIT-2ecc71](https://img.shields.io/badge/license-MIT-2ecc71)
+<p align="center">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-191A1E">
 
-[https://img.shields.io/badge/Made%20by-Bruno%20Henrique%20Saibert-2ecc71](https://img.shields.io/badge/Made%20by-Bruno%20Henrique%20Saibert-2ecc71)
+  <a href="https://github.com/BrunoSaibert">
+    <img alt="Made by Bruno Henrique Saibert" src="https://img.shields.io/badge/Made%20by-Bruno%20Henrique520Saibert-191A1E">
+  </a>
 
-[https://img.shields.io/badge/Follow%20up-brunohenriquesaibert-2ecc71?style=social&logo=linkedin](https://img.shields.io/badge/Follow%20up-brunohenriquesaibert-2ecc71?style=social&logo=linkedin)
+  <a href="https://linkedin.com/in/brunohenriquesaibert">
+    <img alt="Follow me Linkedin" src="https://img.shields.io/badge/Follow%20up-brunohenriquesaibert-191A1E?style=social&logo=linkedin">
+  </a>
+</p>
 
 ![https://github.com/BrunoSaibert/github_explorer/blob/master/src/assets/github-explorer.png?raw=true](https://github.com/BrunoSaibert/github_explorer/blob/master/src/assets/github-explorer.png?raw=true)
 
