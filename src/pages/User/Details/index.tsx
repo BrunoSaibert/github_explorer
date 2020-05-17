@@ -50,7 +50,10 @@ const UserDetails: React.FC = () => {
   return (
     <>
       <S.Header>
-        <img src={logoImg} alt="Github Explorer" />
+        <Link to="/">
+          <img src={logoImg} alt="Github Explorer" />
+        </Link>
+
         <Link to="/user">
           <FiChevronLeft size={16} /> Voltar
         </Link>

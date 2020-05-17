@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import React, { useState, useEffect, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
+import { FiChevronRight } from 'react-icons/fi';
 
 import api from '../../services/api';
 
@@ -8,61 +8,85 @@ import logoImg from '../../assets/logo.svg';
 
 import * as S from './styles';
 
-interface RepositoryParams {
-  repository: string;
-}
-
 interface Repository {
   full_name: string;
   description: string;
-  stargazers_count: number;
-  forks_count: number;
-  open_issues_count: number;
   owner: {
     login: string;
     avatar_url: string;
   };
 }
 
-interface Issue {
-  id: number;
-  title: string;
-  html_url: string;
-  user: {
-    login: string;
-  };
-}
+const Dashboard: React.FC = () => {
+  const [newRepo, setNewRepo] = useState('');
+  const [inputError, setInputError] = useState('');
+  const [repositories, setRepositories] = useState<Repository[]>(() => {
+    const storageRepositories = localStorage.getItem(
+      '@GithubExplorer:repositories',
+    );
 
-const Repository: React.FC = () => {
-  const { params } = useRouteMatch<RepositoryParams>();
-  const [repository, setRepository] = useState<Repository | null>(null);
-  const [issues, setIssues] = useState<Issue[]>([]);
+    if (storageRepositories) {
+      return JSON.parse(storageRepositories);
+    }
+
+    return [];
+  });
 
   useEffect(() => {
-    async function loadData(): Promise<void> {
-      api.get(`repos/${params.repository}`).then(response => {
-        setRepository(response.data);
-      });
+    localStorage.setItem(
+      '@GithubExplorer:repositories',
+      JSON.stringify(repositories),
+    );
+  }, [repositories]);
 
-      api.get(`repos/${params.repository}/issues`).then(response => {
-        setIssues(response.data);
-      });
+  async function handlerAddRepository(
+    event: FormEvent<HTMLFormElement>,
+  ): Promise<void> {
+    event.preventDefault();
+
+    if (!newRepo) {
+      setInputError('Digite o autor/nome do repositório');
+      return;
     }
-    loadData();
-  }, [params.repository]);
+
+    try {
+      const response = await api.get<Repository>(`repos/${newRepo}`);
+
+      const repository = response.data;
+
+      setRepositories([...repositories, repository]);
+      setNewRepo('');
+      setInputError('');
+    } catch (err) {
+      setInputError('Erro na busca desse repositório');
+    }
+  }
 
   return (
     <>
-      <S.Header>
+      <Link to="/">
         <img src={logoImg} alt="Github Explorer" />
-        <Link to="/">
-          <FiChevronLeft size={16} /> Voltar
-        </Link>
-      </S.Header>
+      </Link>
 
-      {repository && (
-        <S.RepositoryInfo>
-          <header>
+      <S.Title>Explores repositórios no Github.</S.Title>
+
+      <S.Form onSubmit={handlerAddRepository} hasError={!!inputError}>
+        <input
+          value={newRepo}
+          onChange={e => setNewRepo(e.target.value)}
+          placeholder="Digite o nome do seu repositório"
+        />
+        <button type="submit">Pesquisar</button>
+      </S.Form>
+
+      {inputError && <S.Error>{inputError}</S.Error>}
+
+      <S.Repositories>
+        {repositories.map(repository => (
+          <Link
+            to={`repository/${repository.full_name}`}
+            key={repository.full_name}
+          >
             <img
               src={repository.owner.avatar_url}
               alt={repository.owner.login}
@@ -71,40 +95,13 @@ const Repository: React.FC = () => {
               <strong>{repository.full_name}</strong>
               <p>{repository.description}</p>
             </div>
-          </header>
-          <ul>
-            <li>
-              <strong>{repository.stargazers_count}</strong>
-              <span>Stars</span>
-            </li>
-            <li>
-              <strong>{repository.forks_count}</strong>
-              <span>Forks</span>
-            </li>
-            <li>
-              <strong>{repository.open_issues_count}</strong>
-              <span>Issues abertas</span>
-            </li>
-          </ul>
-        </S.RepositoryInfo>
-      )}
 
-      {issues && (
-        <S.Issues>
-          {issues.map(issue => (
-            <a key={issue.id} href={issue.html_url}>
-              <div>
-                <strong>{issue.title}</strong>
-                <p>{issue.user.login}</p>
-              </div>
-
-              <FiChevronRight size={20} />
-            </a>
-          ))}
-        </S.Issues>
-      )}
+            <FiChevronRight size={20} />
+          </Link>
+        ))}
+      </S.Repositories>
     </>
   );
 };
 
-export default Repository;
+export default Dashboard;

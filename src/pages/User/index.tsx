@@ -57,7 +57,9 @@ const User: React.FC = () => {
 
   return (
     <>
-      <img src={logoImg} alt="Github Explorer" />
+      <Link to="/">
+        <img src={logoImg} alt="Github Explorer" />
+      </Link>
 
       <S.Title>Explores usuários do Github.</S.Title>
 
