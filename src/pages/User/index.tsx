@@ -11,8 +11,8 @@ import * as S from './styles';
 interface User {
   login: string;
   avatar_url: string;
-  bio: string;
   name: string;
+  bio: string;
 }
 
 const User: React.FC = () => {
