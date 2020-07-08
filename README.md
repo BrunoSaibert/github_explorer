@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/logo.png" width="200px" />
+</p>
+
 <h1 align="center">
   Aplicação Github Explorer
 </h1>
@@ -16,11 +20,13 @@
   </a>
 </p>
 
-![https://github.com/BrunoSaibert/github_explorer/blob/master/src/assets/github-explorer.png?raw=true](https://github.com/BrunoSaibert/github_explorer/blob/master/src/assets/github-explorer.png?raw=true)
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-1.jpg" />
+</p>
 
 ## 🚀 Projeto
 
-A aplicação utiliza a api pública do Github e tem a finaidade de  buscar e listar repositórios que o usuário pode localizar através de uma campo de busca, a lista fica salva no localStorage do navegador. Também é possível ver os detalhes de dos repositórios.
+A aplicação utiliza a api pública do Github e tem a finaidade de buscar e listar repositórios e outros usuários que podem localizados através de um campo de busca, a lista fica salva no localStorage do navegador. Também é possível ver os detalhes de dos repositórios e dos usuários adicionados.
 
 ## 🔧 Tecnologias
 
@@ -29,7 +35,6 @@ A aplicação utiliza a api pública do Github e tem a finaidade de  buscar e li
 - Styled-components (Estilo)
 - Flexbox (Estilo)
 - React-router-dom (Navegação entre rotas)
-
 
 ## 💻 Executando a aplicação
 
@@ -50,6 +55,32 @@ Inicie o projeto;
 ```
 $ yarn start
 ```
+
+## 🖼 Imagens da aplicação
+
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-1.jpg" />
+</p>
+
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-2.jpg" />
+</p>
+
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-3.jpg" />
+</p>
+
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-4.jpg" />
+</p>
+
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-5.jpg" />
+</p>
+
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-6.jpg" />
+</p>
 
 ---
 
