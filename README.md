@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/logo.png" width="200px" />
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/github.png" width="200px" />
 </p>
 
 <h1 align="center">
