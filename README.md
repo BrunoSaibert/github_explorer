@@ -82,6 +82,10 @@ $ yarn start
   <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-6.jpg" />
 </p>
 
+<p align="center">
+  <img alt="Github Explorer" src="https://raw.githubusercontent.com/BrunoSaibert/github_explorer/master/src/assets/git-explorer-7.jpg" />
+</p>
+
 ---
 
 Feito com ♥ by [Bruno Henrique Saibert](https://www.linkedin.com/in/brunohenriquesaibert)
